@@ -1,0 +1,73 @@
+-- Supported values for orientation:
+-- portrait, portraitUpsideDown, landscapeLeft, landscapeRight
+
+settings = {
+	
+	orientation = {
+		default = "portrait",
+		supported = { "portrait", }
+	},
+	
+	iphone = {
+		plist = {
+	CFBundleIconFiles = {
+            "Icon.png",
+            "Icon@2x.png",
+            "Icon-Small-40.png",
+            "Icon-Small-40@2x.png",
+            "Icon-60.png",
+            "Icon-60@2x.png",
+            "Icon-72.png",
+            "Icon-72@2x.png",
+            "Icon-76.png",
+            "Icon-76@2x.png",
+            "Icon-Small-50.png",
+            "Icon-Small-50@2x.png",
+            "Icon-Small.png",
+            "Icon-Small@2x.png"
+            },
+            UIAppFonts =
+            {
+                "BebasNeue.otf"
+            },
+			UIStatusBarHidden = true,
+			UIPrerenderedIcon = true, -- set to false for "shine" overlay
+			UIApplicationExitsOnSuspend = false,
+            FacebookAppID = "432126356925184",
+
+            CFBundleURLTypes =
+            {
+                {
+                    CFBundleURLSchemes =
+                    {
+                        "fb432126356925184", -- example scheme for facebook
+                        "coronasdkapp", -- example second scheme
+                    }
+                }
+            },
+
+		}
+	},
+	
+	
+    android =
+    {
+        usesPermissions = {
+            "android.permission.INTERNET",
+            "android.permission.VIBRATE"
+        }
+    },
+
+
+    plugins =
+    {
+        ["facebook"] =
+        {
+            publisherId = "com.coronalabs",
+            supportedPlatforms= {
+                iphone=true,
+                ["iphone-sim"]=true
+            },
+        }
+    }
+}
